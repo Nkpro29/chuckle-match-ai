@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Laugh } from "lucide-react";
+import { Heart, Laugh } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 
 export function Header() {
@@ -9,10 +9,10 @@ export function Header() {
     <header className="container mx-auto px-4 py-6">
       <nav className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full flex items-center justify-center">
-            <Laugh className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-2xl font-bold text-gray-900">HumorHub</span>
+          <Heart className="h-8 w-8 text-rose-500" />
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-rose-500 to-pink-600 bg-clip-text text-transparent">
+            HumorMatch
+          </h1>
         </div>
 
         <div className="hidden md:flex items-center space-x-6">

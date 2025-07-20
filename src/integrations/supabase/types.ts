@@ -14,7 +14,170 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      joke_ratings: {
+        Row: {
+          created_at: string
+          id: string
+          joke_id: string
+          rater_user_id: string
+          rating: number | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          joke_id: string
+          rater_user_id: string
+          rating?: number | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          joke_id?: string
+          rater_user_id?: string
+          rating?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_ratings_joke_id"
+            columns: ["joke_id"]
+            isOneToOne: false
+            referencedRelation: "jokes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fk_ratings_user_id"
+            columns: ["rater_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      jokes: {
+        Row: {
+          ai_feedback: string | null
+          ai_humor_score: number | null
+          content: string
+          created_at: string
+          id: string
+          is_profile_joke: boolean | null
+          type: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          ai_feedback?: string | null
+          ai_humor_score?: number | null
+          content: string
+          created_at?: string
+          id?: string
+          is_profile_joke?: boolean | null
+          type?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          ai_feedback?: string | null
+          ai_humor_score?: number | null
+          content?: string
+          created_at?: string
+          id?: string
+          is_profile_joke?: boolean | null
+          type?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_jokes_user_id"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      matches: {
+        Row: {
+          created_at: string
+          id: string
+          match_score: number | null
+          status: string | null
+          user1_id: string
+          user2_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          match_score?: number | null
+          status?: string | null
+          user1_id: string
+          user2_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          match_score?: number | null
+          status?: string | null
+          user1_id?: string
+          user2_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_matches_user1"
+            columns: ["user1_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "fk_matches_user2"
+            columns: ["user2_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          age: number | null
+          avatar_url: string | null
+          bio: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          location: string | null
+          updated_at: string
+          user_id: string
+          username: string
+        }
+        Insert: {
+          age?: number | null
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          location?: string | null
+          updated_at?: string
+          user_id: string
+          username: string
+        }
+        Update: {
+          age?: number | null
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          location?: string | null
+          updated_at?: string
+          user_id?: string
+          username?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

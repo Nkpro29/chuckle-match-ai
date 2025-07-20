@@ -13,8 +13,12 @@ const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!loading && !user) {
-      navigate("/auth");
+    if (!loading) {
+      if (!user) {
+        navigate("/auth");
+      } else {
+        navigate("/dashboard");
+      }
     }
   }, [user, loading, navigate]);
 

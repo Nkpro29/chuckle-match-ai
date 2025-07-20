@@ -34,7 +34,7 @@ export function HeroSection() {
       <div className="mt-16 relative">
         <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto">
           <img
-            src="/placeholder.svg?height=400&width=800&text=HumorHub App Interface"
+            src="/connect.png"
             alt="HumorHub App Interface"
             className="w-full h-auto rounded-lg"
           />

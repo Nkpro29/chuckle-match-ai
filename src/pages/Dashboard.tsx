@@ -1,6 +1,6 @@
 import { useAuth } from "@/hooks/useAuth";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -29,7 +29,7 @@ const Dashboard = () => {
         .eq("user_id", user.id)
         .single();
 
-      if (error && error.code !== 'PGRST116') {
+      if (error && error.code !== "PGRST116") {
         throw error;
       }
 
@@ -76,12 +76,12 @@ const Dashboard = () => {
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-pink-200 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
+          <Link to={"/"} className="flex items-center space-x-2">
             <Heart className="h-8 w-8 text-rose-500" />
             <h1 className="text-2xl font-bold bg-gradient-to-r from-rose-500 to-pink-600 bg-clip-text text-transparent">
-              HumorMatch
+              HumorHub
             </h1>
-          </div>
+          </Link>
           <div className="flex items-center space-x-4">
             <span className="text-sm text-gray-600">Welcome, {user.email}</span>
             <Button
@@ -101,19 +101,31 @@ const Dashboard = () => {
       <main className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="discover" className="flex items-center space-x-2">
+            <TabsTrigger
+              value="discover"
+              className="flex items-center space-x-2"
+            >
               <Search className="h-4 w-4" />
               <span>Discover</span>
             </TabsTrigger>
-            <TabsTrigger value="add-joke" className="flex items-center space-x-2">
+            <TabsTrigger
+              value="add-joke"
+              className="flex items-center space-x-2"
+            >
               <Plus className="h-4 w-4" />
               <span>Add Joke</span>
             </TabsTrigger>
-            <TabsTrigger value="my-jokes" className="flex items-center space-x-2">
+            <TabsTrigger
+              value="my-jokes"
+              className="flex items-center space-x-2"
+            >
               <Heart className="h-4 w-4" />
               <span>My Jokes</span>
             </TabsTrigger>
-            <TabsTrigger value="matches" className="flex items-center space-x-2">
+            <TabsTrigger
+              value="matches"
+              className="flex items-center space-x-2"
+            >
               <Users className="h-4 w-4" />
               <span>Matches</span>
             </TabsTrigger>

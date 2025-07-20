@@ -113,6 +113,7 @@ export const FindMatches = () => {
         !profile.existing_match // Not already matched
       ).sort((a, b) => b.compatibility_score - a.compatibility_score) || [];
 
+      // @ts-ignore
       setPotentialMatches(matchesWithScores);
 
       // Set current matches

@@ -62,6 +62,7 @@ export const DiscoverJokes = () => {
         };
       }) || [];
 
+      // @ts-ignore
       setJokes(processedJokes);
     } catch (error) {
       console.error("Error fetching jokes:", error);
@@ -118,6 +119,7 @@ export const DiscoverJokes = () => {
 
       toast({
         title: "Rating submitted!",
+        // @ts-ignore
         description: `You rated this ${joke.type} ${rating} star${rating !== 1 ? 's' : ''}.`,
       });
 

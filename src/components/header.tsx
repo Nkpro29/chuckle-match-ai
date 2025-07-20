@@ -3,7 +3,6 @@ import { Heart, Laugh } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 
 export function Header() {
-  const { user, loading, signOut } = useAuth();
 
   return (
     <header className="container mx-auto px-4 py-6">
@@ -11,7 +10,7 @@ export function Header() {
         <div className="flex items-center space-x-2">
           <Heart className="h-8 w-8 text-rose-500" />
           <h1 className="text-2xl font-bold bg-gradient-to-r from-rose-500 to-pink-600 bg-clip-text text-transparent">
-            HumorMatch
+            HumorHub
           </h1>
         </div>
 
@@ -28,7 +27,7 @@ export function Header() {
           >
             Features
           </a>
-
+{/* 
           {user ? (
             <div className="flex items-center space-x-4">
               <span className="text-gray-600 text-sm">{user.email}</span>
@@ -48,7 +47,7 @@ export function Header() {
             >
               Sign In
             </Button>
-          )}
+          )} */}
         </div>
       </nav>
     </header>

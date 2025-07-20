@@ -1,0 +1,37 @@
+import { Button } from "@/components/ui/button";
+import { Laugh } from "lucide-react";
+
+export function Header() {
+  return (
+    <header className="container mx-auto px-4 py-6">
+      <nav className="flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full flex items-center justify-center">
+            <Laugh className="w-5 h-5 text-white" />
+          </div>
+          <span className="text-2xl font-bold text-gray-900">HumorHub</span>
+        </div>
+        <div className="hidden md:flex items-center space-x-6">
+          <a
+            href="#how-it-works"
+            className="text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            How it Works
+          </a>
+          <a
+            href="#features"
+            className="text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            Features
+          </a>
+          <Button
+            variant="outline"
+            className="border-orange-200 text-orange-600 hover:bg-orange-50 bg-transparent"
+          >
+            Sign In
+          </Button>
+        </div>
+      </nav>
+    </header>
+  );
+}
